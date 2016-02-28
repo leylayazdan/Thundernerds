@@ -20,3 +20,7 @@ body {
   li:nth-child(odd) {
   background: #eee;
 }
+
+.bootstrap-tagsinput {
+  width: 100% !important;
+}

@@ -1,7 +1,19 @@
-$('#myModal').modal('show');
-
 $(function() {
   var socket = io();
+
+  // Show the modal on page entry
+  $('#myModal').modal('show');
+
+/*
+  $('#topic').suggestTopics({
+    console.log('Hello!');
+  autocomplete: {
+    source: ['red','blue','green','yellow','violet','brown','purple','black','white'],
+    delay: 100
+  },
+  showAutocompleteOnFocus: true
+  });
+  */
 
   // When the user clicks on send button
   $('#msg-click').click(function(){
