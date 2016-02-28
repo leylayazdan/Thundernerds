@@ -131,6 +131,6 @@ body {
 
 }
 
-.bootstrap-tagsinput {
+.bootstrap-tagsinput, .bootstrap-tagsinput input {
   width: 100% !important;
 }
