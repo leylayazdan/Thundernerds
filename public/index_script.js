@@ -16,7 +16,17 @@ $(function() {
   $('#start').on('click', function(e)
   {
     socket.emit('start');
-  })
+  });
+
+  // When the user clicks on submit topic button
+  $('#topic-click2').click(function(){
+    sendTopic2();
+  });
+
+  $('#no-topic').on('click', function(e) {
+    socket.emit('start');
+  });
+
 
   // Or the user presses enter from the text box
   $('#msg').keydown(function(event) {
@@ -42,7 +52,14 @@ $(function() {
     var topic = $topic.val();
 
     socket.emit('topic', topic);
-  }
+  };
+
+  var sendTopic2 = function() {
+    var $topic = $('#topic2');
+    var topic = $topic.val();
+
+    socket.emit('topic2', topic);
+  };
 
 
   // When we receive a user message, add to html list
@@ -50,6 +67,12 @@ $(function() {
     var new_msg = $('<li>').text(msg);
     $('#messages').append(new_msg);
     $('body,html').animate({scrollTop: $('#messages li:last-child').offset().top + 5 + 'px'}, 5);
+  });
+
+  socket.on('notopic', function() {
+    console.log("But do I get here");
+    $("#noTopicsModal").modal("show");
+    console.log("WHYAREYOUNOTWORKING")
   });
 
   socket.on('count', function(message) { console.log(message); });

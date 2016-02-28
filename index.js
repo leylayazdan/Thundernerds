@@ -37,6 +37,13 @@ io.on('connection', function (socket) {
     socket.topic = message;
   });
 
+  socket.on('topic2', function(message)
+  {
+    console.log("Topic:", message);
+    //
+    socket.topic = message;
+  });
+
   socket.on('start', function()
   {
     if(!socket.topic)
@@ -54,9 +61,14 @@ io.on('connection', function (socket) {
       return client.topic && client.topic === socket.topic;
     });
 
-    if(matching.length <= 0)
-    {
-      socket.emit('user-message', 'Nobody is interested in ' + socket.topic);
+    if(matching.length <= 0) {
+      //socket.emit('user-message', 'Nobody is interested in ' + socket.topic);
+      console.log("DO I EVER GET HERE");
+      socket.emit('notopic', 'No one is interested in ' + socket.topic);
+      console.log("Are you doing this?");
+      //$("#noTopicsModal .modal-header").html("New Title");
+      //$("#noTopicsModal .modal-body").html("New Body");
+
       return;
     }
 
