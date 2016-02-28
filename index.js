@@ -45,7 +45,7 @@ io.on('connection', function (socket) {
 
   socket.on('start', function() {
     if(!socket.topics) {
-      socket.emit('user-message', "Use /topics ... to set the conversation topics");
+      socket.emit('user-message', "Use 'topics' ... to set the conversation topics");
     }
     //Go over all connected clients
     //see if their topics match
