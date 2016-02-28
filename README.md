@@ -1,45 +1,31 @@
-# Thundernerds nwHacks App
+#Out of My Mind 
 
-## Tech we are using
+## Inspiration
+Meet Catherine. Recently with academic, social, and personal stress, she has relapsed back into depression. In fear of the social stigmatism of mental illnesses, she does not know whom to talk to about this and has not revealed this to anyone. She is currently fighting the battle alone.
+Late night, when her depression gets the worst of her, she just needs someone to talk to at that moment. 
+With our app Out of My Mind, she can reach out to anyone anonymously and chat with someone who shares a similar experience and understands exactly how she feels.
 
-### NodeJS
-https://nodejs.org/en/
 
-NodeJS is a runtime for JavaScript that is well suited for a wide variety of web applications. NodeJS is "non-blocking" so when you make a call that could be slow (eg. a database query or a call to another web service) your application doesn't just stop, it continues processing other events.
+## What it does
+A peer-to-peer platform for those who are mentally ill or who simply need an outlet to help resolve their most current worries-- to get their worries out of their minds.
 
-NodeJS code is often written in a fairly functional manner so for those of you who know Racket you should be fairly comfortable diving in to NodeJS.
+## How we built it
+We used NodeJS, Bootstrap, Socket.io, and JavaScript as our back end, and HTML and CSS as our front end.
 
-### Express
-http://expressjs.com/
+## Challenges we ran into
+The learning curve was quite steep as this was a new language for all members of the team. For some, it was also the first time using Git. Hence, the starting of the app of deciding what to do and how to do it, and the wrapping up with merge conflicts in Git were both difficult to complete and overcome.
 
-Express is a framework on top of NodeJS that makes it easy to build a web application. It handles the HTTP layer for you without doing soo much that you no longer know what is happening.
+## Accomplishments that we're proud of
+We are proud of complete minimal viable product as beginners without any previous experience. We are also proud and excited that this could potentially make a significant impact to society, by resolving a common issue we see happening, even to the people around us.
 
-The key aspects for a simple app like this is the route handling using app.<get|post|put>('/url/route/:variable', handler_function). The handler function is then passed a request object usually labelled "req" which holds data from the request such as parameter data or the JSON body. It is also passed a response object usually labelled "res" which is used to format the response.
+## What we learned
+We learned to program and connect back end services NodeJS, Bootstrap, Socket.io, and JavaScript to front end services of HTML and CSS. We learned how to work as a team in terms of communication, workflow, and Git.
 
-### Socket.IO
-http://socket.io/
 
-Socket.IO is great for supporting real time communication between your web server and your client app.
-
-To use it simply call io.emit('message header', 'message body'). If you want to make the message body a complex data structure simply use JSON.stringify(complexObject) to create your message body and then use JSON.parse() on the other end to turn it back into a Javascript object.
-
-### Bootstrap
-http://getbootstrap.com/
-
-Bootstrap provides an easy way to make your website look decent with little knowledge of HTML/CSS. I am not going to go over it much in this workshop but you can find many helpful resources online.
-
-## Example App
-
-A simple app that connects everyone to one chat server and emits every message to everyone.
-
-### Setup
-
-Make sure you have NodeJS installed. Clone this repository to a directory on your computer. In a terminal window navigate to that directory and run 'npm install' to install the libraries specified in the package.json file.
-
-### Run the app
-
-Type 'node index.js' in the command line to run the server and then navigate to 'localhost:3000' in your browser to view the page.
-
-## How to extend the app
-
-Use Socket.IO to extend any "real-time" aspects of the app. Examples would be live quizzes, following a stream of data(eg. a twitter feed or updates to an API),
+## What's next for Out of My Mind
+For our vision and additional features: 
+    -to turn our web app into an android/ios mobile app to serve a wider audience
+    -to create a database of users' personal experiences and how they may or may not overcome it
+    -to provide data to mental wellness organizations by keeping track of common topics among users 
+    -to continue connections between users by allowing them to create accounts and be able to save chat history
+    -to expand the chatting feature from one-on-one chatting into multi-user chatrooms
