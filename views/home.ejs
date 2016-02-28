@@ -9,7 +9,7 @@
     <meta name="author" content="">
     <link rel="icon" href="../../favicon.ico">
 
-    <title>ComicCollab</title>
+    <title>AnonHelp</title>
 
     <!-- Bootstrap core CSS -->
     <link href="../node_modules/dist/css/bootstrap.min.css" rel="stylesheet">
@@ -37,12 +37,11 @@
         <div class="navbar-header">
             <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
             </button>
-            <a class="navbar-brand" href="home">ComicCollab</a>
+            <a class="navbar-brand" href="home">AnonHelp</a>
         </div>
         <div id="navbar" class="navbar-collapse collapse">
         <ul>
             <%if (cur.getIsLoggedIn()){%>
-                <a href="uploadcomics/" class="btn btn-info" role="button" id='button_createComic'>Create Comic</a>
                 <a href="myprofile" class="btn btn-info" role="button" id='button_profile'>Profile</a>
                 <a href="logout" class="btn btn-info" role="button" id='button_logout'>Logout</a>
             <% }else {%>
@@ -50,41 +49,14 @@
                 <a href="login" class="btn btn-info" role="button" id='button_login'>Login</a>
                 <%}%>
         </ul>
-            <!--<div class="container">-->
-                <!--<div class="row">-->
-                    <!--<h2></h2>-->
-                    <!--<div id="custom-search-input">-->
-                        <!--<div class="input-group col-md-12">-->
-                            <!--<input type="text" class="  search-query form-control" placeholder="Search your favourite comics..." />-->
-                                <!--<span class="input-group-btn">-->
-                                    <!--<button class="btn btn-danger" type="button">-->
-                                        <!--<span class=" glyphicon glyphicon-search"></span>-->
-                                    <!--</button>-->
-                                <!--</span>-->
-                        <!--</div>-->
-                    <!--</div>-->
-                <!--</div>-->
-            <!--</div>-->
-
-
         </div><!--/.navbar-collapse -->
     </div>
 </nav>
 
 <div class="container">
-    <div style="min-width: 1250px">
-        <% for (var i=urls.length-1; i>=0; i--) { %>
-        <a href="<%=comicIds[i]%>">
-            <img style="width: 300px; height:300px" src="<%= urls[i]%>" />
-        </a>
-        <% } %>
-    </div>
-</div>
-
-<div class="container">
 
     <footer>
-        <p>&copy; ComicCollab  </p>
+        <p>&copy; AnonHelp  </p>
     </footer>
 </div> <!-- /container -->
 
