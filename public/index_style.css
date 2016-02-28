@@ -1,11 +1,52 @@
 body {
   padding-top: 50px;
+  font-size: 12px;
+  text-shadow: 4px 4px 4px #aaa;
 }
 .hold-bottom {
   padding: 5px;
   position: fixed;
   bottom: 0;
 }
+
+.modal-title {
+  font-family: 'Inconsolata', serif;
+}
+
+.modal-prebody {
+  padding-left: 20px;
+  padding-top: 20px;
+  padding-bottom: 0px;
+  padding-right: 20px;
+  font-family: 'Inconsolata', serif;
+  width: 30em;
+  white-space:nowrap;
+  overflow:hidden;
+  -webkit-animation: type 5s steps(50, end);
+  animation: type 5s steps(50, end);
+}
+@keyframes type{
+    from { width: 0; }
+}
+
+@-webkit-keyframes type{
+    from { width: 0; }
+}
+
+
+.modal-footer {
+  font-family: 'Inconsolata', serif;
+}
+
+.btn-warning {
+  background: #9999FF;
+  border-color: #FFFFFF;
+}
+
+#myModal {
+  background:rgba(255,255,255,0.5);
+}
+
 #messages {
   list-style-type: none;
   margin: 0;
@@ -19,4 +60,19 @@ body {
 #messages
   li:nth-child(odd) {
   background: #eee;
+}
+
+.navbar-brand {
+  margin: 25px;
+  padding: 0;
+  margin-bottom: 0;
+  margin-left: -50px;
+  margin-right: 50px;
+  text-align: center;
+  width: 100%;
+  border-radius: 5px;
+  position: relative;
+  font-size:48px;
+  color: #3b88c3;
+
 }
