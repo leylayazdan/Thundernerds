@@ -3,7 +3,7 @@ var express = require('express');
 var bodyParser = require('body-parser');
 var http = require('http').Server(app);
 var io = require('socket.io')(http);
-var port = 3000;
+var port = process.env.PORT || 3000;
 var gravatar = require('gravatar');
 
 // var avatar = gravatar.url('email_goes_here', { w:64, h:64});
