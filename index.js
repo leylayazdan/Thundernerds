@@ -1,25 +1,41 @@
 var app = require('express')();
 var express = require('express');
+var bodyParser = require('body-parser');
 var http = require('http').Server(app);
 var io = require('socket.io')(http);
 var port = 3000;
+var gravatar = require('gravatar');
 
+// var avatar = gravatar.url('email_goes_here', { w:64, h:64});
+
+var SYSTEM = 'System';
+
+var fs = require('fs');
 var util = require('util');
 function inspect(o, d)
 {
   console.log(util.inspect(o, { colors: true, depth: d || 1 }));
 }
 
+app.use(bodyParser.json());
+app.use(bodyParser.urlencoded({ extended: true }));
+
 // Serve our index.html page at the root url
 app.get('/', function (req, res) {
   res.sendFile(__dirname + '/public/index.html');
 });
 
-app.get('/clients', function(req, res){
-  inspect(io.sockets, 4);
-  // res.write(JSON.stringify(clients));
-  res.end();
-})
+//Writes feedback to a file
+app.post('/feedback', function(req, res)
+{
+  //TODO: Better file names or send actual email/store to DB
+  var filename = 'feedback_' + Math.random().toString() + '.json';
+  console.log('Saving feedback to ' + filename);
+  fs.writeFile(filename, JSON.stringify(req.body), { encoding: 'utf8'}, function(err, done)
+  {
+    res.end();
+  });
+});
 
 // Have express serve all of our files in the public directory
 app.use(express.static('public'));
@@ -33,17 +49,8 @@ io.on('connection', function (socket) {
     socket.topics = message;
   });
 
-  /*
-  socket.on('topic2', function(message) {
-    socket.topics = message;
-  });
-
-  socket.on('topic3', function(message) {
-    socket.topics = message;
-  });
-  */
-
-  socket.on('start', function() {
+  socket.on('start', function()
+  {
     if(!socket.topics) {
       socket.emit('user-message', "Use 'topics' ... to set the conversation topics");
     }
@@ -72,8 +79,8 @@ io.on('connection', function (socket) {
     });
 
     if (clientsWithMatchingTopics.length <= 0) {
-      socket.emit('user-message', "Sorry. We couldn't find a match for " + socket.topics +
-          ". \n You can wait for someone or try these suggestions: anxious, depressed, insecure, lonely, powerless, stressed");
+      socket.emit('user-message', encodeMessage("Sorry. We couldn't find a match for " + socket.topics +
+          ". \n You can wait for someone or try these suggestions: anxious, depressed, insecure, lonely, powerless, stressed", SYSTEM));
       return;
     }
 
@@ -84,9 +91,17 @@ io.on('connection', function (socket) {
     socket.join(random);
     matchedClient.room = random;
     socket.room = random;
-    io.to(random).emit('user-message', 'You are talking about ' + matchedTopic + ' with ' + socket.id);
-    // socket.emit('user-message', 'You are talking about ' + socket.topics + ' with ' + match.id);
+    io.to(random).emit('user-message', encodeMessage('You are talking about ' + matchedTopic + ' with ' + socket.id, SYSTEM));
+    // socket.emit('user-message', 'You are talking about ' + socket.topic + ' with ' + match.id);
   });
+  function encodeMessage(message, sender)
+  {
+    return JSON.stringify({
+      message: message,
+      sender: sender,
+      // avatar: avatar
+    });
+  }
 
   console.log(socket.id + ' connected');
 
@@ -99,19 +114,21 @@ io.on('connection', function (socket) {
     io.emit('count', io.sockets.sockets.length);
   });
 
-  // message is our custom event, emit the message to everyone in the room
+  // message is our custom event, emit the message to everyone
   socket.on('message', function(msg) {
     var data = JSON.parse(msg);
     console.log("Message: ", data);
     if(socket.room)
     {
-      io.to(socket.room).emit('user-message', socket.id + ": " + data.message);
+      io.to(socket.room).emit('user-message', encodeMessage(data.message, socket.id));
     }
-    else {
+    else
+    {
       // io.emit('user-message', socket.id + ": " + data.message);
     }
   });
 });
+
 
 // Starts the web server at the given port
 http.listen(port, function(){
