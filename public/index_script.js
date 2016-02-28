@@ -8,13 +8,10 @@ $(function() {
     sendMessage();
   });
 
-  // When the user clicks on submit topic button
-  $('#topic-click').click(function(){
-    sendTopic();
-  });
-
+  // When the user clicks on Start Talking button
   $('#start').on('click', function(e)
   {
+    sendTopic();
     socket.emit('start');
   })
 
@@ -29,10 +26,6 @@ $(function() {
     var $msg = $('#msg');
     var message = $msg.val();
     socket.emit('message', JSON.stringify({message: message}));
-
-
-    //
-
     $msg.val('');
   };
 

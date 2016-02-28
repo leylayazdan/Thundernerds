@@ -2,15 +2,13 @@ var app = require('express')();
 var express = require('express');
 var http = require('http').Server(app);
 var io = require('socket.io')(http);
+var port = 3000;
 
 var util = require('util');
-
 function inspect(o, d)
 {
   console.log(util.inspect(o, { colors: true, depth: d || 1 }));
 }
-
-var port = 3000;
 
 // Serve our index.html page at the root url
 app.get('/', function (req, res) {
@@ -33,7 +31,6 @@ io.on('connection', function (socket) {
   socket.on('topic', function(message)
   {
     console.log("Topic:", message);
-    //
     socket.topic = message;
   });
 
