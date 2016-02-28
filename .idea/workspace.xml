@@ -2,67 +2,18 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="5b2d6da3-7f8a-4263-9607-eaa32161e49e" name="Default" comment="">
-      <change type="DELETED" beforePath="$PROJECT_DIR$/db_objects/comicImage.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/db_objects/comicImage.js.map" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/db_objects/comicImage.ts" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/db_objects/comics.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/db_objects/comics.js.map" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/db_objects/comics.ts" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/db_objects/tag.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/db_objects/tag.js.map" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/db_objects/tag.ts" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/public/images/0b2c044c54c3547f9cf701193ebab032" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/public/images/0c19347ae5ea0ff5b37667cc6e903da6" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/public/images/16b94ccd5d13de4cf6cbb9e898366a05" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/public/images/23f96aadebf09bd33067d67ed8f9e5ab" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/public/images/24367465ff8b8371d630ce0a85aab3ba" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/public/images/26cd0a09bd02be2d080d484096bc0209" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/public/images/2a1b36706c4ea699c40012f0f812cd83" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/public/images/39cf2cf954ead474f4eab34c00927ea1" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/public/images/43990f653e38782f29250e70a72c15cd" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/public/images/4970b6b5a811a136a98f4ff5b0434c07" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/public/images/4b858a63f48bd8dcb5e25341227a0f4e" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/public/images/4c84356f46915662bf947dcaa2e59c21" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/public/images/55c2241050cfbab7b94ef085f6da96e7" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/public/images/573e57bde4e7565f560548f6096a48b1" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/public/images/6121dc9e20593ec3da719f0fa97a81be" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/public/images/68c469e8a14821443349160fb0d42622" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/public/images/6a488c929babdd29ca6cc496c2522796" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/public/images/732891dd25a22b71a9066719789be68e" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/public/images/82afd0937e0cb5814731242d0e2091c5" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/public/images/82e3248f3c0bed449d651ea84a574301" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/public/images/8a95407d6733f1d682219b88f0098cf1" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/public/images/9cda95e07cf082376faca36b1f2d8441" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/public/images/9e571d0e8643c291835bacd115648223" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/public/images/b2f805cf51743933717ca136449a7a4d" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/public/images/b38b50834e80e129c242e3566defa8c0" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/public/images/ba0a63c495985edd7aed37192f983fde" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/public/images/ba88747d9ae8915b6e29ea364e4191ab" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/public/images/bb7736f0bb8fc12300beaf487c78fee2" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/public/images/c12b3163fca4fb572bf9f1a245b56647" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/public/images/c23afd8e63bfe6f6dabfa2de0f6739c0" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/public/images/c54af7e50c079cbc220e7cef2c7dbd78" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/public/images/c571cded0062c5431babc81decb985e6" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/public/images/cd5ec40fd680b1f5f7a413ae3cb43bc6" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/public/images/ce4bc4d929fd5d912845f6e14e0f63f6" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/public/images/d58afe2ba98cfaecd9cd9ffe2c0789a6" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/public/images/d62ffaa713e3da7b50997d912270d94a" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/public/images/de550642642e7f8abf8d049d3c593609" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/public/images/e07a4ef4476b85be12928d4b350a6448" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/public/images/e3cfd46347b08b97eb49b42e17174d1d" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/public/images/f291b1e9d179bba89ddf706cb8f5d05a" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/public/images/f9d1f14aabe76a3127f45ccec204d7d4" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/public/images/fa637f5bd0fbbf7674dc6ac5a6badc60" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/public/images/fccd402aa97db32bb31dd113dfa7225b" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/public/images/ff9b53406c7fd792de0b49a51ddb42a0" afterPath="" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/views/createprofile.ejs" afterPath="$PROJECT_DIR$/views/register.ejs" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/views/editprofile.ejs" afterPath="$PROJECT_DIR$/views/editprof.ejs" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app.js" afterPath="$PROJECT_DIR$/app.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app.js.map" afterPath="$PROJECT_DIR$/app.js.map" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app.ts" afterPath="$PROJECT_DIR$/app.ts" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/package.json" afterPath="$PROJECT_DIR$/package.json" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/routes/index.js" afterPath="$PROJECT_DIR$/routes/index.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/routes/index.js.map" afterPath="$PROJECT_DIR$/routes/index.js.map" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/routes/index.ts" afterPath="$PROJECT_DIR$/routes/index.ts" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/views/createprofile.ejs" afterPath="$PROJECT_DIR$/views/createprofile.ejs" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/views/home.ejs" afterPath="$PROJECT_DIR$/views/home.ejs" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/views/myprofile.ejs" afterPath="$PROJECT_DIR$/views/myprofile.ejs" />
     </list>
     <ignored path="Thundernerds.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -93,41 +44,28 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="app.js.map" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app.js.map">
-          <provider editor-type-id="sourcemapFileViewerProvider">
-            <state />
-          </provider>
+      <file leaf-file-name="home.ejs" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/views/home.ejs">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-0.0">
-              <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+            <state vertical-scroll-proportion="3.9583333">
+              <caret line="42" column="12" selection-start-line="42" selection-start-column="12" selection-end-line="42" selection-end-column="12" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="app.ts" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app.ts">
+      <file leaf-file-name="editprof.ejs" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/views/editprof.ejs">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0">
-              <caret line="45" column="28" selection-start-line="45" selection-start-column="28" selection-end-line="45" selection-end-column="28" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="editprofile.ejs" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/views/editprofile.ejs">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="5.0">
+            <state vertical-scroll-proportion="0.06521739">
               <caret line="2" column="19" selection-start-line="2" selection-start-column="19" selection-end-line="2" selection-end-column="19" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="package.json" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/package.json">
+      <file leaf-file-name="error.ejs" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/views/error.ejs">
           <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="-0.0">
               <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
@@ -140,7 +78,7 @@
         <entry file="file://$PROJECT_DIR$/routes/index.ts">
           <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="0.0">
-              <caret line="168" column="110" selection-start-line="168" selection-start-column="110" selection-end-line="168" selection-end-column="110" />
+              <caret line="57" column="35" selection-start-line="57" selection-start-column="35" selection-end-line="57" selection-end-column="35" />
               <folding>
                 <element signature="n#!!doc" expanded="true" />
               </folding>
@@ -148,41 +86,51 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="npm-debug.log" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/npm-debug.log">
+      <file leaf-file-name="SharePoint.d.ts" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/types/DefinitelyTyped/sharepoint/SharePoint.d.ts">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0">
-              <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+            <state vertical-scroll-proportion="-9.851851">
+              <caret line="7601" column="30" selection-start-line="7601" selection-start-column="30" selection-end-line="7601" selection-end-column="30" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="createprofile.ejs" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/views/createprofile.ejs">
+      <file leaf-file-name="login.ejs" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/views/login.ejs">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.7173913">
-              <caret line="28" column="32" selection-start-line="28" selection-start-column="32" selection-end-line="28" selection-end-column="32" />
+            <state vertical-scroll-proportion="-4.375">
+              <caret line="7" column="52" selection-start-line="7" selection-start-column="52" selection-end-line="7" selection-end-column="52" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="account.ts" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/db_objects/account.ts">
+      <file leaf-file-name="myprofile.ejs" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/views/myprofile.ejs">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0">
-              <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+            <state vertical-scroll-proportion="-7.5">
+              <caret line="12" column="52" selection-start-line="12" selection-start-column="52" selection-end-line="12" selection-end-column="52" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="users.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/routes/users.js">
+      <file leaf-file-name="register.ejs" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/views/register.ejs">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0">
-              <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+            <state vertical-scroll-proportion="-1.875">
+              <caret line="3" column="19" selection-start-line="3" selection-start-column="19" selection-end-line="3" selection-end-column="19" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="users.ejs" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/views/users.ejs">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="-12.041667">
+              <caret line="20" column="23" selection-start-line="20" selection-start-column="23" selection-end-line="20" selection-end-column="23" />
               <folding />
             </state>
           </provider>
@@ -197,12 +145,16 @@
     <option name="CHANGED_PATHS">
       <list>
         <option value="$PROJECT_DIR$/npm-debug.log" />
-        <option value="$PROJECT_DIR$/views/home.ejs" />
         <option value="$PROJECT_DIR$/views/editprofile.ejs" />
         <option value="$PROJECT_DIR$/views/login.ejs" />
+        <option value="$PROJECT_DIR$/views/createprofile.ejs" />
+        <option value="$PROJECT_DIR$/views/users.ejs" />
         <option value="$PROJECT_DIR$/routes/index.ts" />
         <option value="$PROJECT_DIR$/app.ts" />
-        <option value="$PROJECT_DIR$/views/createprofile.ejs" />
+        <option value="$PROJECT_DIR$/package.json" />
+        <option value="$PROJECT_DIR$/app.js" />
+        <option value="$PROJECT_DIR$/views/home.ejs" />
+        <option value="$PROJECT_DIR$/views/myprofile.ejs" />
       </list>
     </option>
   </component>
@@ -214,8 +166,8 @@
     <detection-done>true</detection-done>
   </component>
   <component name="ProjectFrameBounds">
-    <option name="x" value="142" />
-    <option name="y" value="23" />
+    <option name="x" value="58" />
+    <option name="y" value="430" />
     <option name="width" value="1440" />
     <option name="height" value="832" />
   </component>
@@ -399,7 +351,7 @@
     <property name="js-jscs-nodeInterpreter" value="/usr/local/bin/node" />
     <property name="settings.editor.selected.configurable" value="vcs.Git" />
     <property name="settings.editor.splitter.proportion" value="0.2" />
-    <property name="SearchEverywhereHistoryKey" value="length&#9;null&#9;null" />
+    <property name="SearchEverywhereHistoryKey" value="editprofile&#9;null&#9;null&#10;length&#9;null&#9;null" />
   </component>
   <component name="RunManager">
     <configuration default="true" type="DartCommandLineRunConfigurationType" factoryName="Dart Command Line Application">
@@ -460,7 +412,7 @@
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="142" y="23" width="1440" height="832" extended-state="0" />
+    <frame x="58" y="430" width="1440" height="832" extended-state="0" />
     <editor active="true" />
     <layout>
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
@@ -495,9 +447,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding>
-            <element signature="n#!!doc" expanded="false" />
-          </folding>
+          <folding />
         </state>
       </provider>
     </entry>
@@ -511,7 +461,7 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/views/createprofile.ejs">
+    <entry file="file://$PROJECT_DIR$/views/register.ejs">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
@@ -519,7 +469,7 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/views/editprofile.ejs">
+    <entry file="file://$PROJECT_DIR$/views/editprof.ejs">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
@@ -563,9 +513,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding>
-            <element signature="n#!!doc" expanded="false" />
-          </folding>
+          <folding />
         </state>
       </provider>
     </entry>
@@ -600,9 +548,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding>
-            <element signature="n#!!doc" expanded="false" />
-          </folding>
+          <folding />
         </state>
       </provider>
     </entry>
@@ -649,82 +595,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/views/error.ejs">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/views/home.ejs">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-23.75">
-          <caret line="39" column="56" selection-start-line="39" selection-start-column="56" selection-end-line="39" selection-end-column="56" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/views/login.ejs">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-4.375">
-          <caret line="7" column="52" selection-start-line="7" selection-start-column="52" selection-end-line="7" selection-end-column="52" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/views/myprofile.ejs">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="11.583333">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/views/users.ejs">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/npm-debug.log">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app.js.map">
       <provider editor-type-id="sourcemapFileViewerProvider">
         <state />
       </provider>
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="1" column="0" selection-start-line="1" selection-start-column="0" selection-end-line="1" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/package.json">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/routes/users.js">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
@@ -740,12 +614,29 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/routes/index.ts">
+    <entry file="file://$PROJECT_DIR$/routes/users.js">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
-          <caret line="168" column="110" selection-start-line="168" selection-start-column="110" selection-end-line="168" selection-end-column="110" />
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/npm-debug.log">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/package.json">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-13.75">
+          <caret line="22" column="0" selection-start-line="22" selection-start-column="0" selection-end-line="22" selection-end-column="0" />
           <folding>
-            <element signature="n#!!doc" expanded="true" />
+            <marker date="1456633810000" expanded="true" signature="0:439" placeholder="{&quot;name&quot;: &quot;main&quot;...}" />
+            <marker date="1456633810000" expanded="true" signature="129:437" placeholder="{&quot;assets&quot;: &quot;^1.0&quot;...}" />
           </folding>
         </state>
       </provider>
@@ -753,23 +644,89 @@
     <entry file="file://$PROJECT_DIR$/app.ts">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
-          <caret line="45" column="28" selection-start-line="45" selection-start-column="28" selection-end-line="45" selection-end-column="28" />
+          <caret line="62" column="19" selection-start-line="62" selection-start-column="19" selection-end-line="62" selection-end-column="19" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/views/editprofile.ejs">
+    <entry file="file://$PROJECT_DIR$/app.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="5.0">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="1" column="0" selection-start-line="1" selection-start-column="0" selection-end-line="1" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/routes/index.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="57" column="35" selection-start-line="57" selection-start-column="35" selection-end-line="57" selection-end-column="35" />
+          <folding>
+            <element signature="n#!!doc" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/types/DefinitelyTyped/sharepoint/SharePoint.d.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-9.851851">
+          <caret line="7601" column="30" selection-start-line="7601" selection-start-column="30" selection-end-line="7601" selection-end-column="30" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/views/users.ejs">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-12.041667">
+          <caret line="20" column="23" selection-start-line="20" selection-start-column="23" selection-end-line="20" selection-end-column="23" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/views/register.ejs">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-1.875">
+          <caret line="3" column="19" selection-start-line="3" selection-start-column="19" selection-end-line="3" selection-end-column="19" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/views/myprofile.ejs">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-7.5">
+          <caret line="12" column="52" selection-start-line="12" selection-start-column="52" selection-end-line="12" selection-end-column="52" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/views/login.ejs">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-4.375">
+          <caret line="7" column="52" selection-start-line="7" selection-start-column="52" selection-end-line="7" selection-end-column="52" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/views/home.ejs">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="3.9583333">
+          <caret line="42" column="12" selection-start-line="42" selection-start-column="12" selection-end-line="42" selection-end-column="12" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/views/error.ejs">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/views/editprof.ejs">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.06521739">
           <caret line="2" column="19" selection-start-line="2" selection-start-column="19" selection-end-line="2" selection-end-column="19" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/views/createprofile.ejs">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.7173913">
-          <caret line="28" column="32" selection-start-line="28" selection-start-column="32" selection-end-line="28" selection-end-column="32" />
           <folding />
         </state>
       </provider>
