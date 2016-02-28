@@ -122,25 +122,6 @@ class Router {
             }
         });
 
-        router.get('/comic/*', function(req, res) {
-            var comicId : String = req.params['0'];
-            var db = req.db;
-            var collection = db.get('comicimages');
-            collection.find({
-                "comicId": comicId
-            }, function(err, docs) {
-                var images = [];
-                if (docs.length != 0) {
-                    for (var i=0; i<docs.length; i++) {
-                        images.push(docs[i]['url']);
-                    }
-                }
-                res.render('comic', {
-                    comicNumber: comicId.toString(),
-                    images: images});
-            });
-        });
-
         /* GET Create Profile page. */
         router.get('/createprofile', function (req, res) {
             res.render('createprofile');
@@ -210,83 +191,6 @@ class Router {
 
                         });
                     }
-                });
-            }
-        });
-
-        /* GET UPLOAD COMICS PAGE */
-        router.get('/uploadcomics/*', function (req, res) {
-            res.render('uploadcomics', {cur: req.currentUser});
-        });
-
-        /* POST TO UPLOAD COMICS PAGE */
-        router.post('/uploadcomics/*', function (req, res) {
-
-            var comicId:String = req.params[0];
-
-            var db = req.db;
-            var collection = db.get('comicimages');
-
-            if (comicId == "") {
-                collection.find({"sequence": "1"}, function (err, docs) {
-                    var largestId:number = 0;
-                    for (var i = 0; i < docs.length; i++) {
-                        var curId = parseInt(docs[i]['comicId']);
-                        if (curId > largestId) {
-                            largestId = curId;
-                        }
-                    }
-                    largestId++;
-                    for (var i = 0; i < req.files.length; i++) {
-                        collection.insert({
-                            "comicId": largestId.toString(),
-                            "creator": req.currentUser.getUsername(),
-                            "url": "/images/" + req.files[i].filename,
-                            "sequence": "1"
-                        });
-                        largestId++;
-                    }
-                    /* redirect to new page */
-                    res.redirect("../../comic/" + (largestId-1).toString());
-
-                })
-            } else {
-                /* look for comic in the database */
-                collection.find({"comicId": comicId}, function (err, docs) {
-                    var sequence:number;
-                    /* if the comic already exists in the database, we want to add the new image to the end */
-                    if (docs.length != 0) {
-                        var curMost:number = 0;
-                        /* for each image associated with that comic, find the last image (aka image with
-                         the highest sequence number) */
-                        for (var i = 0; i < docs.length; i++) {
-                            var seq = parseInt(docs[i]['sequence']);
-                            if (seq > curMost) {
-                                curMost = seq;
-                            }
-                        }
-                        sequence = curMost;
-                        /* if the comic doesn't exist in the database, set its seq to 0 */
-                    } else {
-                        sequence = 0;
-                    }
-
-                    /* insert the comic image (with its associated details) in the last
-                     sequence (or initial sequence) */
-                    for (var i = 0; i < req.files.length; i++) {
-                        var nextSequence:number = sequence + 1;
-
-
-                        collection.insert({
-                            "comicId": comicId,
-                            "creator": req.currentUser.getUsername(),
-                            "url": "/images/" + req.files[i].filename,
-                            "sequence": nextSequence.toString()
-                        });
-                        sequence = nextSequence;
-                    }
-                    /* redirect to new page */
-                    res.redirect("../../comic/" + comicId);
                 });
             }
         });

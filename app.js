@@ -20,7 +20,7 @@ var LoggedInUser = (function () {
         this.isLoggedIn = isLoggedIn;
     };
     return LoggedInUser;
-}());
+})();
 var Application = (function () {
     function Application() {
         var express = require('express');
@@ -31,7 +31,7 @@ var Application = (function () {
         var bodyParser = require('body-parser');
         var mongo = require('mongodb');
         var monk = require('monk');
-        var db = monk('user:pass@ds060968.mongolab.com:60968/wecode_db');
+        var db = monk('user:pass@ds051953.mlab.com:51953/thundernerds');
         var routes = require('./routes/index');
         var users = require('./routes/users');
         var multer = require('multer');
@@ -96,8 +96,9 @@ var Application = (function () {
         module.exports = app;
     }
     return Application;
-}());
+})();
 var currentUser = new LoggedInUser('', false);
 var application = new Application();
 //# sourceMappingURL=app.js.map
 //# sourceMappingURL=app.js.map 
+//# sourceMappingURL=app.js.map
