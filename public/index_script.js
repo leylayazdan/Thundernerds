@@ -79,9 +79,9 @@ $(function() {
         // new_msg.find('img').attr('src', data.avatar);
         $messages.append(new_msg);
       }
-      $('body,html').animate({scrollTop: $('#messages div:last-child').offset().top + 5 + 'px'}, 5);
+      $('body').animate({scrollTop: $('#messages div:last-child').offset().top + 50 + 'px'}, 5);
   });
-  
+
   socket.on('notopic', function() {
     if (accumulator % 2 != 0) {
       $("#noTopicsModal").modal({show: true, backdrop: 'static', keyboard:false});
