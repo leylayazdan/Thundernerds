@@ -34,26 +34,32 @@
     </div>
   </div>
 
-/<!--
 
-  <div class="modal fade" id="noTopicsModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+
+  <div class="modal fade" id="feedbackModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
     <div class="modal-dialog" role="document">
       <div class="modal-content">
         <div class="modal-header">
           <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-          <h4 class="modal-title" id="myModalLabel2">Sorry. We couldn't find a match.</h4>
-          <h5 class="modal-title">Instead try: anxious, depressed, insecure, lonely, powerless, stressed</h5>
+          <h4 class="modal-title" id="myModalLabel2">Hope you feel better now!</h4>
+          <h5 class="modal-title">Write about your experience</h5>
         </div>
-        <div class="modal-body">
-          <select multiple type="text" class="form-control" id='topic2' placeholder="How do you feel today?" data-role="tagsinput"></select>
-        </div>
-        <div class="modal-footer">
-          <button class="btn btn-default" type="button" id="no-topic" data-dismiss="modal">Start Talking</button>
-        </div>
+        <form id="feedback" action="/feedback" method="post">
+          <div class="modal-body">
+            <input type="text" class="form-control" name='name' id='name' placeholder="Name" >
+            <input type="text" class="form-control" name='email' id='email' placeholder="Email Address" >
+            <input type="text" class="form-control" name='message' id='feedbackMessage' placeholder="Your Experience" >
+          </div>
+          <div class="modal-footer">
+              <input type="submit" id="submitButton" value="Send Email" />
+            <!--<button class="btn btn-default" type="submit" id="feedback-button" data-dismiss="modal">Send</button>-->
+          </div>
+        </form>
       </div>
     </div>
   </div>
 
+  /<!--
   <div class="modal fade" id="noTopicsModal2" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
     <div class="modal-dialog" role="document">
       <div class="modal-content">
@@ -99,6 +105,7 @@
           <span class="input-group-btn">
             <button class="btn btn-default" type="button" id='msg-click'>Send!</button>
             <button class="btn btn-default" type="button" onClick="history.go(0)" VALUE="Refresh">Start New Chat</button>
+            <button class="btn btn-default" type="button" data-toggle="modal" data-target="#feedbackModal">Feedback</button>
             </span>
         </div><!-- /input-group -->
       </div><!-- /.col-lg-6 -->

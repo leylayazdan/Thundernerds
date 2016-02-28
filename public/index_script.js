@@ -19,6 +19,7 @@ $(function() {
     socket.emit('start');
   });
 
+
   /*
   $('#no-topic').on('click', function(e)
   {
@@ -39,6 +40,7 @@ $(function() {
       sendMessage();
     }
   });
+
 
   var sendMessage = function() {
     var $msg = $('#msg');
@@ -87,5 +89,28 @@ $(function() {
     accumulator++;
   });
 
+  //$('#feedback').on('submit', function() {
+  //  $('#feedback').attr('action',
+  //      'mailto:matyar33@gmail.com?subject=' +
+  //      $('#name').val() + '&body=' + $('#email').val() + $('#feedbackMessage').val());
+  //  $('#feedback').submit();
+  //});
+
   socket.on('count', function(message) { console.log(message); });
+
+  var $feedback = $('#feedback');
+
+  $feedback.on('submit', function(e)
+  {
+    $.post('/feedback', $feedback.serialize(), function(err, done){
+      //Clear form
+      //If err - show error
+      console.log(err, done);
+      if(err) { alert(err); }
+      $feedback.get(0).reset();
+      $('#submitButton').attr('disabled', true).val('Thank you');
+    });
+    e.preventDefault();
+    e.stopPropagation();
+  });
 });

@@ -1,8 +1,11 @@
 var app = require('express')();
 var express = require('express');
+var bodyParser = require('body-parser');
 var http = require('http').Server(app);
 var io = require('socket.io')(http);
 var port = 3000;
+
+var fs = require('fs');
 
 var util = require('util');
 function inspect(o, d)
@@ -10,9 +13,24 @@ function inspect(o, d)
   console.log(util.inspect(o, { colors: true, depth: d || 1 }));
 }
 
+app.use(bodyParser.json());
+app.use(bodyParser.urlencoded({ extended: true }));
+
 // Serve our index.html page at the root url
 app.get('/', function (req, res) {
   res.sendFile(__dirname + '/public/index.html');
+});
+
+//Writes feedback to a file
+app.post('/feedback', function(req, res)
+{
+  //TODO: Better file names or send actual email/store to DB
+  var filename = 'feedback_' + Math.random().toString() + '.json';
+  console.log('Saving feedback to ' + filename);
+  fs.writeFile(filename, JSON.stringify(req.body), { encoding: 'utf8'}, function(err, done)
+  {
+    res.end();
+  });
 });
 
 app.get('/clients', function(req, res){
@@ -112,6 +130,7 @@ io.on('connection', function (socket) {
     }
   });
 });
+
 
 // Starts the web server at the given port
 http.listen(port, function(){
