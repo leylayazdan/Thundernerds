@@ -125,6 +125,7 @@ var Router = (function () {
                         res.send("Username has already exist. Please enter a new username");
                     }
                     else {
+                        console.log("do I get here");
                         // Submit to the DB
                         collection.insert({
                             "username": user.getUsername(),
@@ -137,7 +138,7 @@ var Router = (function () {
                         }, function (err, docs) {
                             if (err) {
                                 // If it failed, return error
-                                res.send("There was a problem adding the information to the database.");
+                                res.send("There was a problem adding the information to the database.\n" + err);
                             }
                             else {
                                 // And forward to home page
