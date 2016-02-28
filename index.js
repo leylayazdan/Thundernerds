@@ -44,6 +44,13 @@ io.on('connection', function (socket) {
     socket.topic = message;
   });
 
+  socket.on('topic3', function(message)
+  {
+    console.log("Topic:", message);
+    //
+    socket.topic = message;
+  });
+
   socket.on('start', function()
   {
     if(!socket.topic)

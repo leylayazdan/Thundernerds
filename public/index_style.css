@@ -6,6 +6,8 @@ body {
   position: fixed;
   bottom: 0;
 }
+.close {display:none;}
+
 #messages {
   list-style-type: none;
   margin: 0;

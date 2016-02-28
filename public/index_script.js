@@ -1,7 +1,19 @@
-$('#myModal').modal('show');
+$('#myModal').modal({show: true, backdrop: 'static', keyboard:false});
+
+function callback() {
+  // Find modal body on the document
+  var $currentDetailsModal = $('#noTopicsModal');
+
+  // Clone modal and save copy
+  var $cloneDetailsModal = $currentDetailsModal.clone();
+
+  // Find links in this modal which open this modal again and bind this function to their click events
+  $('#topic-click2', $cloneDetailsModal).click(callback);
+}
 
 $(function() {
   var socket = io();
+  var accumulator = 1;
 
   // When the user clicks on send button
   $('#msg-click').click(function(){
@@ -23,10 +35,18 @@ $(function() {
     sendTopic2();
   });
 
+  // When the user clicks on submit topic button
+  $('#topic-click3').click(function(){
+    sendTopic3();
+  });
+
   $('#no-topic').on('click', function(e) {
     socket.emit('start');
   });
 
+  $('#no-topic2').on('click', function(e) {
+    socket.emit('start');
+  });
 
   // Or the user presses enter from the text box
   $('#msg').keydown(function(event) {
@@ -61,6 +81,12 @@ $(function() {
     socket.emit('topic2', topic);
   };
 
+  var sendTopic3 = function() {
+    var $topic = $('#topic3');
+    var topic = $topic.val();
+
+    socket.emit('topic3', topic);
+  };
 
   // When we receive a user message, add to html list
   socket.on('user-message', function(msg) {
@@ -70,9 +96,21 @@ $(function() {
   });
 
   socket.on('notopic', function() {
+    if (accumulator % 2 != 0) {
+      $("#noTopicsModal").modal({show: true, backdrop: 'static', keyboard:false});
+    } else {
+      $("#noTopicsModal2").modal({show: true, backdrop: 'static', keyboard:false});
+    }
+    accumulator++;
+    /*if (accumulator >= 1) {
+      $("#noTopicsModal").modal('hide');
+      console.log("are you incrementing?");
+    }
     console.log("But do I get here");
-    $("#noTopicsModal").modal("show");
+    $("#noTopicsModal").modal('toggle');
+    accumulator++;
     console.log("WHYAREYOUNOTWORKING")
+    */
   });
 
   socket.on('count', function(message) { console.log(message); });
