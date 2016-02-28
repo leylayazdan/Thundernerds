@@ -10,7 +10,7 @@ With our app Out of My Mind, she can reach out to anyone anonymously and chat wi
 A peer-to-peer platform for those who are mentally ill or who simply need an outlet to help resolve their most current worries-- to get their worries out of their minds.
 
 ## How we built it
-We used NodeJS, Bootstrap, Socket.io, and JavaScript as our back end, and HTML and CSS as our front end.
+We used NodeJS, Socket.io, and JavaScript as our back end, and HTML and CSS/Twitter Bootstrap as our front end.
 
 ## Challenges we ran into
 The learning curve was quite steep as this was a new language for all members of the team. For some, it was also the first time using Git. Hence, the starting of the app of deciding what to do and how to do it, and the wrapping up with merge conflicts in Git were both difficult to complete and overcome.
