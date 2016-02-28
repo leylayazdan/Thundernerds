@@ -3,6 +3,11 @@ var express = require('express');
 var http = require('http').Server(app);
 var io = require('socket.io')(http);
 var port = 3000;
+var gravatar = require('gravatar');
+
+// var avatar = gravatar.url('email_goes_here', { w:64, h:64});
+
+var SYSTEM = 'System';
 
 var util = require('util');
 function inspect(o, d)
@@ -15,12 +20,6 @@ app.get('/', function (req, res) {
   res.sendFile(__dirname + '/public/index.html');
 });
 
-app.get('/clients', function(req, res){
-  inspect(io.sockets, 4);
-  // res.write(JSON.stringify(clients));
-  res.end();
-})
-
 // Have express serve all of our files in the public directory
 app.use(express.static('public'));
 
@@ -28,65 +27,54 @@ app.use(express.static('public'));
 io.on('connection', function (socket) {
   io.emit('count', io.sockets.sockets.length);
   // socket.id is a unique id for each socket connection
-  socket.on('topics', function(message) {
-    console.log("topics:", message);
-    socket.topics = message;
+  socket.on('topic', function(message)
+  {
+    console.log("Topic:", message);
+    socket.topic = message;
   });
 
-  /*
-  socket.on('topic2', function(message) {
-    socket.topics = message;
-  });
-
-  socket.on('topic3', function(message) {
-    socket.topics = message;
-  });
-  */
-
-  socket.on('start', function() {
-    if(!socket.topics) {
-      socket.emit('user-message', "Use /topics ... to set the conversation topics");
-    }
+  socket.on('start', function()
+  {
+    // if(!socket.topic)
+    // {
+    //   socket.emit('user-message', "Use 'topic' ... to set the conversation topic");
+    // }
     //Go over all connected clients
     //see if their topics match
     //join them into a room
 
-    var socketTopics = socket.topics;
-    var clients = io.sockets.sockets;
-    var clientsWithMatchingTopics = [];
-    var matchingTopics = [];
-
-    socketTopics.forEach(function(socketTopic) {
-      clients.forEach(function(client) {
-        if (client === socket) return;
-        if (client.room) return;
-        if (client.topics) {
-          client.topics.forEach(function(clientTopic) {
-            if (clientTopic === socketTopic) {
-              clientsWithMatchingTopics.push(client);
-              matchingTopics.push(clientTopic);
-            }
-          })
-        }
-      })
+    var matching = io.sockets.sockets.filter(function(client)
+    {
+      if(client === socket) return false;
+      if(client.room) return false;
+      return client.topic && client.topic === socket.topic;
     });
 
-    if (clientsWithMatchingTopics.length <= 0) {
-      socket.emit('user-message', "Sorry. We couldn't find a match for " + socket.topics +
-          ". \n You can wait for someone or try these suggestions: anxious, depressed, insecure, lonely, powerless, stressed");
+    if(matching.length <= 0)
+    {
+      // TODO: Change 'user-message' to 'error'?
+      socket.emit('user-message', encodeMessage('Nobody is interested in ' + socket.topic, SYSTEM));
       return;
     }
 
-    var matchedClient = clientsWithMatchingTopics[0];
-    var matchedTopic = matchingTopics[0];
+    var match = matching[0];
     var random = Math.random().toString(); //Get something better, like a UUID
-    matchedClient.join(random);
+    match.join(random);
     socket.join(random);
-    matchedClient.room = random;
+    match.room = random;
     socket.room = random;
-    io.to(random).emit('user-message', 'You are talking about ' + matchedTopic + ' with ' + socket.id);
-    // socket.emit('user-message', 'You are talking about ' + socket.topics + ' with ' + match.id);
+    io.to(random).emit('user-message', encodeMessage('You are talking about ' + match.topic + ' with ' + socket.id, SYSTEM));
+    // socket.emit('user-message', 'You are talking about ' + socket.topic + ' with ' + match.id);
   });
+
+  function encodeMessage(message, sender)
+  {
+    return JSON.stringify({
+      message: message,
+      sender: sender,
+      // avatar: avatar
+    });
+  }
 
   console.log(socket.id + ' connected');
 
@@ -99,15 +87,16 @@ io.on('connection', function (socket) {
     io.emit('count', io.sockets.sockets.length);
   });
 
-  // message is our custom event, emit the message to everyone in the room
+  // message is our custom event, emit the message to everyone
   socket.on('message', function(msg) {
     var data = JSON.parse(msg);
     console.log("Message: ", data);
     if(socket.room)
     {
-      io.to(socket.room).emit('user-message', socket.id + ": " + data.message);
+      io.to(socket.room).emit('user-message', encodeMessage(data.message, socket.id));
     }
-    else {
+    else
+    {
       // io.emit('user-message', socket.id + ": " + data.message);
     }
   });

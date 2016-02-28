@@ -1,11 +1,13 @@
-$('#myModal').modal({show: true, backdrop: 'static', keyboard:false});
+var SYSTEM = 'System';
+var MINE = 'mine';
+var YOU = 'you';
+
+var $messages = $('#messages');
+
+$('#myModal').modal('show');
 
 $(function() {
   var socket = io();
-  var accumulator = 1;
-
-  // Show the modal on page entry
-  $('#myModal').modal('show');
 
   // When the user clicks on send button
   $('#msg-click').click(function(){
@@ -15,23 +17,9 @@ $(function() {
   // When the user clicks on Start Talking button
   $('#start').on('click', function(e)
   {
-    sendTopics();
+    sendTopic();
     socket.emit('start');
-  });
-
-  /*
-  $('#no-topic').on('click', function(e)
-  {
-    sendTopic2();
-    socket.emit('start');
-  });
-
-  $('#no-topic2').on('click', function(e)
-  {
-    sendTopic3();
-    socket.emit('start');
-  });
-  */
+  })
 
   // Or the user presses enter from the text box
   $('#msg').keydown(function(event) {
@@ -48,50 +36,45 @@ $(function() {
   };
 
 
-  var sendTopics = function() {
-    var $topics = $('#topics');
-    var topics = $topics.val();
-    console.log(topics);
-    console.log(topics.length);
-    socket.emit('topics', topics);
-  };
+  var sendTopic = function() {
+    var $topic = $('#topic');
+    var topic = $topic.val();
 
-  /*
-  var sendTopic2 = function() {
-    var $topic2 = $('#topic2');
-    var topic2 = $topic2.val();
+    socket.emit('topic', topic);
+  }
 
-    socket.emit('topic2', topic2);
-  };
 
-  var sendTopic3 = function() {
-    var $topic3 = $('#topic3');
-    var topic3 = $topic3.val();
-
-    socket.emit('topic3', topic3);
-  };
-  */
   // When we receive a user message, add to html list
-    socket.on('user-message', function(msg) {
-      var new_msg = $('<li>').text(msg);
-        console.log(new_msg);
-        if (new_msg[0].innerHTML.indexOf(socket.id) > -1) {
-            new_msg.attr('id', 'mine');
-            $('#messages').append(new_msg)
-        } else {
-            new_msg.attr('id', 'you');
-            $('#messages').append(new_msg);
-          }
-    $('body,html').animate({scrollTop: $('#messages li:last-child').offset().top + 5 + 'px'}, 5);
-  });
+    socket.on('user-message', function(msg)
+    {
+      var data = JSON.parse(msg);
+      var owner;
+      console.log(data);
+      if(data.sender === SYSTEM)
+      {
+        owner = 'system';
+      }
+      else {
+        owner = data.sender === socket.id ? MINE : YOU;
+      }
 
-  socket.on('notopic', function() {
-    if (accumulator % 2 != 0) {
-      $("#noTopicsModal").modal({show: true, backdrop: 'static', keyboard:false});
-    } else {
-      $("#noTopicsModal2").modal({show: true, backdrop: 'static', keyboard:false});
-    }
-    accumulator++;
+      if($messages.children().last().hasClass(owner))
+      {
+        $messages.children().last().find('p').append($('<div>' + data.message + '</div>'));
+      }
+      else
+      {
+        var new_msg = $('#messageTemplate_' + owner)
+          .clone()
+          .attr('id', null)
+          .attr('style', null)
+          .addClass(owner);
+        new_msg.find('.media-body h4').text(data.sender);
+        new_msg.find('p').append($('<div>').text(data.message));
+        // new_msg.find('img').attr('src', data.avatar);
+        $messages.append(new_msg);
+      }
+      // $('body,html').animate({scrollTop: $('#messages li:last-child').offset().top + 5 + 'px'}, 5);
   });
 
   socket.on('count', function(message) { console.log(message); });

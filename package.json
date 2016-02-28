@@ -4,6 +4,7 @@
   "description": "Small app to demonstrate NodeJS, Express, and Socket.IO",
   "dependencies": {
     "express": "^4.10.2",
+    "gravatar": "^1.4.0",
     "socket.io": "^1.3.7"
   }
 }
