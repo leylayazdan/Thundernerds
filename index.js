@@ -34,38 +34,50 @@ io.on('connection', function (socket) {
     socket.topics = message;
   });
 
-  socket.on('start', function()
+  socket.on('topic2', function(message)
   {
-    if(!socket.topics)
-    {
+    console.log("Topic:", message);
+    //
+    socket.topic = message;
+  });
+
+  socket.on('topic3', function(message)
+  {
+    console.log("Topic:", message);
+    //
+    socket.topic = message;
+  });
+
+  socket.on('start', function() {
+    if(!socket.topics) {
       socket.emit('user-message', "Use /topics ... to set the conversation topics");
     }
     //Go over all connected clients
     //see if their topics match
     //join them into a room
 
-var socketTopics = socket.topics;
-var clients = io.sockets.sockets;
-var clientsWithMatchingTopics = [];
-var matchingTopics = [];
+    var socketTopics = socket.topics;
+    var clients = io.sockets.sockets;
+    var clientsWithMatchingTopics = [];
+    var matchingTopics = [];
 
-socketTopics.forEach(function(socketTopic) {
-  clients.forEach(function(client) {
-    if (client === socket) return;
-    if (client.room) return;
-    if (client.topics) {
-      client.topics.forEach(function(clientTopic) {
-        if (clientTopic === socketTopic) {
-          clientsWithMatchingTopics.push(client);
-          matchingTopics.push(clientTopic);
+    socketTopics.forEach(function(socketTopic) {
+      clients.forEach(function(client) {
+        if (client === socket) return;
+        if (client.room) return;
+        if (client.topics) {
+          client.topics.forEach(function(clientTopic) {
+            if (clientTopic === socketTopic) {
+              clientsWithMatchingTopics.push(client);
+              matchingTopics.push(clientTopic);
+            }
+          })
         }
       })
-    }
-  })
-})
-    if(clientsWithMatchingTopics.length <= 0)
-    {
-      socket.emit('user-message', 'Nobody is interested in ' + socket.topics);
+    });
+
+    if(clientsWithMatchingTopics.length <= 0) {
+      socket.emit('notopic', 'No one is interested in ' + socket.topic);
       return;
     }
 

@@ -16,23 +16,61 @@
 <body>
 
   <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
-  <div class="modal-dialog" role="document">
-    <div class="modal-content">
-      <div class="modal-header">
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-        <h4 class="modal-title" id="myModalLabel"><b>Welcome!</b></h4>
-      </div>
-        <p class="modal-prebody">Hey there, you're not alone.</p>
-        <p class="modal-prebody">Tell us how you feel today and we'll find someone you can talk to.</p>
-      <div class="modal-body">
-        <select multiple type="text" class="form-control" id='topics' placeholder="How do you feel today?" data-role="tagsinput"></select>
-      </div>
-      <div class="modal-footer">
-      <button class="btn btn-warning" type="button" id="start" data-dismiss="modal">Start Talking!</button>
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+          <h4 class="modal-title" id="myModalLabel"><b>Welcome!</b></h4>
+        </div>
+          <p class="modal-prebody">Hey there, you're not alone.</p>
+          <p class="modal-prebody">Tell us how you feel today and we'll find someone you can talk to.</p>
+        <div class="modal-body">
+         <select multiple type="text" class="form-control" id='topics' placeholder="How do you feel today?" data-role="tagsinput"></select>
+        </div>
+        <div class="modal-footer">
+          <button class="btn btn-warning" type="button" id="start" data-dismiss="modal">Start Talking!</button>
+        </div>
       </div>
     </div>
   </div>
-</div>
+
+  <div class="modal fade" id="noTopicsModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+          <h4 class="modal-title" id="myModalLabel2">Sorry. We couldn't find a match.</h4>
+          <h5 class="modal-title">Instead try: anxious, depressed, insecure, lonely, powerless, stressed</h5>
+        </div>
+        <div class="modal-body">
+          <input type="text" class="form-control" placeholder="Select a topic" id='topic2'>
+          <button class="btn btn-default" type="button" id='topic-click2'>Submit Topic!</button>
+        </div>
+        <div class="modal-footer">
+          <button class="btn btn-default" type="button" id="no-topic" data-dismiss="modal">Start Talking</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="modal fade" id="noTopicsModal2" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+          <h4 class="modal-title" id="myModalLabel3">No topic, choose other</h4>
+          <h5 class="modal-title">Suggested topics: anxious, depressed, insecure, lonely, powerless, stressed</h5>
+        </div>
+        <div class="modal-body">
+          <input type="text" class="form-control" placeholder="Select a topic" id='topic3'>
+          <button class="btn btn-default" type="button" id='topic-click3'>Submit Topic!</button>
+        </div>
+        <div class="modal-footer">
+          <button class="btn btn-default" type="button" id="no-topic2" data-dismiss="modal">Start Talking</button>
+        </div>
+      </div>
+    </div>
+  </div>
 
   <nav class="navbar navbar-inverse navbar-fixed-top">
     <div class="container">
@@ -58,6 +96,7 @@
 
           <span class="input-group-btn">
             <button class="btn btn-default" type="button" id='msg-click'>Send!</button>
+            <button class="btn btn-default" type="button" onClick="history.go(0)" VALUE="Refresh">Start New Chat</button>
             </span>
         </div><!-- /input-group -->
       </div><!-- /.col-lg-6 -->

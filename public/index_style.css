@@ -33,8 +33,6 @@ p:nth-child(2){
   animation: type2 4s steps(60, end);
 }
 
-
-
 @keyframes type{
   0%{width: 0;}
   50%{width: 0;}
@@ -46,67 +44,6 @@ p:nth-child(2){
 
     from { width: 0; }
 }
-
-
-
-/*.modal-prebody {
-   background:white;
-   opacity:0.7;
-   white-space:nowrap;
-   overflow:hidden;
-   border-right: 3px solid black;
-   -webkit-animation-delay:0s;
-   -webkit-animation: typing 7s steps(50, end),
-   blink-caret 3s step-end 2s;
-  font-family: 'Inconsolata', serif;
-  padding-left: 10px;
-  padding-top: 0px;
-  padding-bottom: 0px;
-  padding-right: 0px;
-
-}*/
-
-
-/*.modal-prebody {
-  padding-left: 20px;
-  padding-top: 20px;
-  padding-bottom: 0px;
-  padding-right: 20px;
-  font-family: 'Inconsolata', serif;
-  width: 30em;
-  white-space:nowrap;
-  overflow:hidden;
-  -webkit-animation: type 5s steps(50, end);
-  animation: type 5s steps(50, end);
-}
-@keyframes type{
-    from { width: 0; }
-}
-
-@-webkit-keyframes type{
-    from { width: 0; }
-}
-
-.modal-prebody2 {
-  padding-left: 20px;
-  padding-top: 20px;
-  padding-bottom: 0px;
-  padding-right: 20px;
-  font-family: 'Inconsolata', serif;
-  width: 30em;
-  white-space:nowrap;
-  overflow:hidden;
-  -webkit-animation: type 5s steps(50, end);
-  animation: type 5s steps(50, end);
-  }
-  @keyframes type{
-    from { width: 0; }
-  }
-
-  @-webkit-keyframes type{
-    from { width: 0; }
-  */
-
 
 .modal-footer {
   font-family: 'Inconsolata', serif;
@@ -120,6 +57,7 @@ p:nth-child(2){
 #myModal {
   background:rgba(255,255,255,0.5);
 }
+.close {display:none;}
 
 #messages {
   list-style-type: none;
