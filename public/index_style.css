@@ -136,6 +136,9 @@ p:nth-child(2){
   background: #eee;
 }
 
+.bootstrap-tagsinput {
+  width: 100% !important;
+
 .navbar-brand {
   margin: 25px;
   padding: 0;
@@ -148,5 +151,4 @@ p:nth-child(2){
   position: relative;
   font-size:48px;
   color: #3b88c3;
-
 }

@@ -1,7 +1,8 @@
-$('#myModal').modal('show');
-
 $(function() {
   var socket = io();
+
+  // Show the modal on page entry
+  $('#myModal').modal('show');
 
   // When the user clicks on send button
   $('#msg-click').click(function(){
@@ -11,7 +12,7 @@ $(function() {
   // When the user clicks on Start Talking button
   $('#start').on('click', function(e)
   {
-    sendTopic();
+    sendTopics();
     socket.emit('start');
   })
 
@@ -30,11 +31,13 @@ $(function() {
   };
 
 
-  var sendTopic = function() {
-    var $topic = $('#topic');
-    var topic = $topic.val();
+  var sendTopics = function() {
+    var $topics = $('#topics');
+    var topics = $topics.val();
+    console.log(topics);
+    console.log(topics.length);
 
-    socket.emit('topic', topic);
+    socket.emit('topics', topics);
   }
 
 
