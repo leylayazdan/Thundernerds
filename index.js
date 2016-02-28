@@ -28,43 +28,56 @@ app.use(express.static('public'));
 io.on('connection', function (socket) {
   io.emit('count', io.sockets.sockets.length);
   // socket.id is a unique id for each socket connection
-  socket.on('topic', function(message)
+  socket.on('topics', function(message)
   {
-    console.log("Topic:", message);
-    socket.topic = message;
+    console.log("topics:", message);
+    socket.topics = message;
   });
 
   socket.on('start', function()
   {
-    if(!socket.topic)
+    if(!socket.topics)
     {
-      socket.emit('user-message', "Use /topic ... to set the conversation topic");
+      socket.emit('user-message', "Use /topics ... to set the conversation topics");
     }
     //Go over all connected clients
     //see if their topics match
     //join them into a room
 
-    var matching = io.sockets.sockets.filter(function(client)
-    {
-      if(client === socket) return false;
-      if(client.room) return false;
-      return client.topic && client.topic === socket.topic;
-    });
+var socketTopics = socket.topics;
+var clients = io.sockets.sockets;
+var clientsWithMatchingTopics = [];
+var matchingTopics = [];
 
-    if(matching.length <= 0)
+socketTopics.forEach(function(socketTopic) {
+  clients.forEach(function(client) {
+    if (client === socket) return;
+    if (client.room) return;
+    if (client.topics) {
+      client.topics.forEach(function(clientTopic) {
+        if (clientTopic === socketTopic) {
+          clientsWithMatchingTopics.push(client);
+          matchingTopics.push(clientTopic);
+        }
+      })
+    }
+  })
+})
+    if(clientsWithMatchingTopics.length <= 0)
     {
-      socket.emit('user-message', 'Nobody is interested in ' + socket.topic);
+      socket.emit('user-message', 'Nobody is interested in ' + socket.topics);
       return;
     }
 
-    var match = matching[0];
+    var matchedClient = clientsWithMatchingTopics[0];
+    var matchedTopic = matchingTopics[0];
     var random = Math.random().toString(); //Get something better, like a UUID
-    match.join(random);
+    matchedClient.join(random);
     socket.join(random);
-    match.room = random;
+    matchedClient.room = random;
     socket.room = random;
-    io.to(random).emit('user-message', 'You are talking about ' + match.topic + ' with ' + socket.id);
-    // socket.emit('user-message', 'You are talking about ' + socket.topic + ' with ' + match.id);
+    io.to(random).emit('user-message', 'You are talking about ' + matchedTopic + ' with ' + socket.id);
+    // socket.emit('user-message', 'You are talking about ' + socket.topics + ' with ' + match.id);
   });
 
   console.log(socket.id + ' connected');
@@ -78,7 +91,7 @@ io.on('connection', function (socket) {
     io.emit('count', io.sockets.sockets.length);
   });
 
-  // message is our custom event, emit the message to everyone
+  // message is our custom event, emit the message to everyone in the room
   socket.on('message', function(msg) {
     var data = JSON.parse(msg);
     console.log("Message: ", data);
