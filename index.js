@@ -63,7 +63,7 @@ io.on('connection', function (socket) {
 
   socket.on('start', function() {
     if(!socket.topics) {
-      socket.emit('user-message', "Use /topics ... to set the conversation topics");
+      socket.emit('user-message', "Use 'topics' ... to set the conversation topics");
     }
     //Go over all connected clients
     //see if their topics match
@@ -123,7 +123,7 @@ io.on('connection', function (socket) {
     console.log("Message: ", data);
     if(socket.room)
     {
-      io.to(socket.room).emit('user-message', "[Private]: " + data.message);
+      io.to(socket.room).emit('user-message', socket.id + ": " + data.message);
     }
     else {
       // io.emit('user-message', socket.id + ": " + data.message);
