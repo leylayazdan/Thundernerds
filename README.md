@@ -1,4 +1,4 @@
-# BCS Hackathon Workshop App
+# Thundernerds nwHacks App
 
 ## Tech we are using
 

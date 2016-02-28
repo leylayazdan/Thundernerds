@@ -7,6 +7,8 @@
   <!-- Optional theme -->
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap-theme.min.css" integrity="sha384-aUGj/X2zp5rLCbBxumKTCw2Z50WgIr1vs/PFN4praOTvYXWlVyh2UtNUU0KAUhAX" crossorigin="anonymous">
   <link href="index_style.css" rel="stylesheet">
+  <link rel="stylesheet" href="http://getbootstrap.com/dist/css/bootstrap.css" />
+  <link rel="stylesheet" href="http://bootstrap-tagsinput.github.io/bootstrap-tagsinput/dist/bootstrap-tagsinput.css" />
   <!-- Fonts -->
   <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Inconsolata">
 </head>
@@ -14,23 +16,63 @@
 <body>
 
   <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
-  <div class="modal-dialog modal-megamenu" role="document">
-    <div class="modal-content">
-      <div class="modal-header">
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-        <h4 class="modal-title" id="myModalLabel"><b>Welcome!</b></h4>
-      </div>
-        <p class="modal-prebody">Hey there, you're not alone.</p>
-        <p class="modal-prebody">Tell us how you feel today and we'll find someone you can talk to.</p>
-      <div class="modal-body">
-        <input type="text" class="form-control" id='topic' placeholder="How do you feel today?">
-      </div>
-      <div class="modal-footer">
-      <button class="btn btn-warning" type="button" id="start" data-dismiss="modal">Start Talking!</button>
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+          <h4 class="modal-title" id="myModalLabel"><b>Welcome!</b></h4>
+        </div>
+          <p class="modal-prebody">Hey there, you're not alone.</p>
+          <p class="modal-prebody">Tell us how you feel today and we'll find someone you can talk to.</p>
+        <div class="modal-body">
+         <select multiple type="text" class="form-control" id='topics' placeholder="How do you feel today?" data-role="tagsinput"></select>
+        </div>
+        <div class="modal-footer">
+          <button class="btn btn-warning" type="button" id="start" data-dismiss="modal">Start Talking!</button>
+        </div>
       </div>
     </div>
   </div>
-</div>
+
+/<!--
+
+  <div class="modal fade" id="noTopicsModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+          <h4 class="modal-title" id="myModalLabel2">Sorry. We couldn't find a match.</h4>
+          <h5 class="modal-title">Instead try: anxious, depressed, insecure, lonely, powerless, stressed</h5>
+        </div>
+        <div class="modal-body">
+          <select multiple type="text" class="form-control" id='topic2' placeholder="How do you feel today?" data-role="tagsinput"></select>
+        </div>
+        <div class="modal-footer">
+          <button class="btn btn-default" type="button" id="no-topic" data-dismiss="modal">Start Talking</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="modal fade" id="noTopicsModal2" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+          <h4 class="modal-title" id="myModalLabel3">No topic, choose other</h4>
+          <h5 class="modal-title">Suggested topics: anxious, depressed, insecure, lonely, powerless, stressed</h5>
+        </div>
+        <div class="modal-body">
+          <select multiple type="text" class="form-control" id='topic3' placeholder="How do you feel today?" data-role="tagsinput"></select>
+        </div>
+        <div class="modal-footer">
+          <button class="btn btn-default" type="button" id="no-topic2" data-dismiss="modal">Start Talking</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  -->
 
   <nav class="navbar navbar-inverse navbar-fixed-top navbar-custom" role="navigation">
     <div class = "navbar-inner">
@@ -60,6 +102,7 @@
 
           <span class="input-group-btn">
             <button class="btn btn-default" type="button" id='msg-click'>Send!</button>
+            <button class="btn btn-default" type="button" onClick="history.go(0)" VALUE="Refresh">Start New Chat</button>
             </span>
         </div><!-- /input-group -->
       </div><!-- /.col-lg-6 -->
@@ -71,6 +114,13 @@
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js" integrity="sha512-K1qjQ+NcF2TYO/eI3M6v8EiNYZfA95pQumfvcVrTHtwQVDG+aHRqLi/ETn2uB+1JqwYqVG3LIvdm9lj6imS/pQ==" crossorigin="anonymous"></script>
   <script src="https://cdn.socket.io/socket.io-1.3.7.js"></script>
+  <script src="http://code.angularjs.org/1.2.15/angular.js" ></script>
+  <script src="http://cdnjs.cloudflare.com/ajax/libs/ng-tags-input/2.0.1/ng-tags-input.min.js"></script>
+  <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+  <script src="http://getbootstrap.com/dist/js/bootstrap.js"></script>
+  <script src="http://bootstrap-tagsinput.github.io/bootstrap-tagsinput/dist/bootstrap-tagsinput.js"></script>
+  <script src="//cdn.jsdelivr.net/bootstrap.tagsinput/0.4.2/bootstrap-tagsinput-angular.js"></script>
+  <script src="//cdnjs.cloudflare.com/ajax/libs/typeahead.js/0.10.4/typeahead.bundle.min.js"></script>
 
   <!-- Our JavaScript for the Socket IO connection -->
   <script src="index_script.js"></script>
