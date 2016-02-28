@@ -130,3 +130,7 @@ body {
   display: block;
 
 }
+
+.bootstrap-tagsinput {
+  width: 100% !important;
+}
