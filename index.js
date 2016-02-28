@@ -1,5 +1,6 @@
 var app = require('express')();
 var express = require('express');
+var bodyParser = require('body-parser');
 var http = require('http').Server(app);
 var io = require('socket.io')(http);
 var port = 3000;
@@ -9,15 +10,31 @@ var gravatar = require('gravatar');
 
 var SYSTEM = 'System';
 
+var fs = require('fs');
 var util = require('util');
 function inspect(o, d)
 {
   console.log(util.inspect(o, { colors: true, depth: d || 1 }));
 }
 
+app.use(bodyParser.json());
+app.use(bodyParser.urlencoded({ extended: true }));
+
 // Serve our index.html page at the root url
 app.get('/', function (req, res) {
   res.sendFile(__dirname + '/public/index.html');
+});
+
+//Writes feedback to a file
+app.post('/feedback', function(req, res)
+{
+  //TODO: Better file names or send actual email/store to DB
+  var filename = 'feedback_' + Math.random().toString() + '.json';
+  console.log('Saving feedback to ' + filename);
+  fs.writeFile(filename, JSON.stringify(req.body), { encoding: 'utf8'}, function(err, done)
+  {
+    res.end();
+  });
 });
 
 // Have express serve all of our files in the public directory
@@ -27,46 +44,56 @@ app.use(express.static('public'));
 io.on('connection', function (socket) {
   io.emit('count', io.sockets.sockets.length);
   // socket.id is a unique id for each socket connection
-  socket.on('topic', function(message)
-  {
-    console.log("Topic:", message);
-    socket.topic = message;
+  socket.on('topics', function(message) {
+    console.log("topics:", message);
+    socket.topics = message;
   });
 
   socket.on('start', function()
   {
-    // if(!socket.topic)
-    // {
-    //   socket.emit('user-message', "Use 'topic' ... to set the conversation topic");
-    // }
+    if(!socket.topics) {
+      socket.emit('user-message', "Use 'topics' ... to set the conversation topics");
+    }
     //Go over all connected clients
     //see if their topics match
     //join them into a room
 
-    var matching = io.sockets.sockets.filter(function(client)
-    {
-      if(client === socket) return false;
-      if(client.room) return false;
-      return client.topic && client.topic === socket.topic;
+    var socketTopics = socket.topics;
+    var clients = io.sockets.sockets;
+    var clientsWithMatchingTopics = [];
+    var matchingTopics = [];
+
+    socketTopics.forEach(function(socketTopic) {
+      clients.forEach(function(client) {
+        if (client === socket) return;
+        if (client.room) return;
+        if (client.topics) {
+          client.topics.forEach(function(clientTopic) {
+            if (clientTopic === socketTopic) {
+              clientsWithMatchingTopics.push(client);
+              matchingTopics.push(clientTopic);
+            }
+          })
+        }
+      })
     });
 
-    if(matching.length <= 0)
-    {
-      // TODO: Change 'user-message' to 'error'?
-      socket.emit('user-message', encodeMessage('Nobody is interested in ' + socket.topic, SYSTEM));
+    if (clientsWithMatchingTopics.length <= 0) {
+      socket.emit('user-message', encodeMessage("Sorry. We couldn't find a match for " + socket.topics +
+          ". \n You can wait for someone or try these suggestions: anxious, depressed, insecure, lonely, powerless, stressed", SYSTEM));
       return;
     }
 
-    var match = matching[0];
+    var matchedClient = clientsWithMatchingTopics[0];
+    var matchedTopic = matchingTopics[0];
     var random = Math.random().toString(); //Get something better, like a UUID
-    match.join(random);
+    matchedClient.join(random);
     socket.join(random);
-    match.room = random;
+    matchedClient.room = random;
     socket.room = random;
-    io.to(random).emit('user-message', encodeMessage('You are talking about ' + match.topic + ' with ' + socket.id, SYSTEM));
+    io.to(random).emit('user-message', encodeMessage('You are talking about ' + matchedTopic + ' with ' + socket.id, SYSTEM));
     // socket.emit('user-message', 'You are talking about ' + socket.topic + ' with ' + match.id);
   });
-
   function encodeMessage(message, sender)
   {
     return JSON.stringify({
@@ -101,6 +128,7 @@ io.on('connection', function (socket) {
     }
   });
 });
+
 
 // Starts the web server at the given port
 http.listen(port, function(){

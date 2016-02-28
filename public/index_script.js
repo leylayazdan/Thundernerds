@@ -2,12 +2,14 @@ var SYSTEM = 'System';
 var MINE = 'mine';
 var YOU = 'you';
 
-var $messages = $('#messages');
-
-$('#myModal').modal('show');
-
 $(function() {
+
+  var $messages = $('#messages');
   var socket = io();
+  var accumulator = 1;
+
+  // Show the modal on page entry
+  $('#myModal').modal('show');
 
   // When the user clicks on send button
   $('#msg-click').click(function(){
@@ -17,9 +19,11 @@ $(function() {
   // When the user clicks on Start Talking button
   $('#start').on('click', function(e)
   {
-    sendTopic();
+    sendTopics();
     socket.emit('start');
-  })
+  });
+
+
 
   // Or the user presses enter from the text box
   $('#msg').keydown(function(event) {
@@ -36,12 +40,13 @@ $(function() {
   };
 
 
-  var sendTopic = function() {
-    var $topic = $('#topic');
-    var topic = $topic.val();
-
-    socket.emit('topic', topic);
-  }
+  var sendTopics = function() {
+    var $topics = $('#topics');
+    var topics = $topics.val();
+    console.log(topics);
+    console.log(topics.length);
+    socket.emit('topics', topics);
+  };
 
 
   // When we receive a user message, add to html list
@@ -74,8 +79,32 @@ $(function() {
         // new_msg.find('img').attr('src', data.avatar);
         $messages.append(new_msg);
       }
-      // $('body,html').animate({scrollTop: $('#messages li:last-child').offset().top + 5 + 'px'}, 5);
+      $('body,html').animate({scrollTop: $('#messages div:last-child').offset().top + 5 + 'px'}, 5);
   });
-
+  
+  socket.on('notopic', function() {
+    if (accumulator % 2 != 0) {
+      $("#noTopicsModal").modal({show: true, backdrop: 'static', keyboard:false});
+    } else {
+      $("#noTopicsModal2").modal({show: true, backdrop: 'static', keyboard:false});
+    }
+    accumulator++;
+  });
   socket.on('count', function(message) { console.log(message); });
+
+  var $feedback = $('#feedback');
+
+  $feedback.on('submit', function(e)
+  {
+    $.post('/feedback', $feedback.serialize(), function(err, done){
+      //Clear form
+      //If err - show error
+      console.log(err, done);
+      if(err) { alert(err); }
+      $feedback.get(0).reset();
+      $('#submitButton').attr('disabled', true).val('Thank you');
+    });
+    e.preventDefault();
+    e.stopPropagation();
+  });
 });
