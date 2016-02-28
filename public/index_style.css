@@ -1,3 +1,4 @@
+
 body {
   padding-top: 50px;
   font-size: 12px;
@@ -9,14 +10,31 @@ body {
   bottom: 0;
 }
 
+.modal-megamenu {
+    width:80%;
+    height:80%;
+}
+
+.modal-body {
+    max-height:500px;
+    overflow:auto;
+}
+
+.modal-prebody {
+  max-width: 100%;
+  word-wrap: break-word;
+  margin: 10px 0 0 10px;
+}
+
 .modal-title {
   font-family: 'Inconsolata', serif;
+  font-size: 48px;
 }
 
 p{
   color: #000;
 
-  font-size: 10px;
+  font-size: 20px;
   margin: 10px 0 0 10px;
   white-space: nowrap;
   overflow: hidden;
@@ -131,22 +149,40 @@ p:nth-child(2){
   li {
     padding: 5px 10px;
   }
-#messages
+/*#messages
   li:nth-child(odd) {
-  background: #eee;
+  background: #9999FF;
+  margin-right: 10px;
+  color:#354EA0;
+}*/
+#mine {
+  background: #9cd5c1;
+}
+
+#you {
+  background: #c5cddf;
+}
+
+}
+
+.navbar-custom {
+    background-color:#229922;
+    color:#ffffff;
+    border-radius:0;
 }
 
 .navbar-brand {
-  margin: 25px;
+  margin: 0px;
   padding: 0;
-  margin-bottom: 0;
+  /*margin-bottom: 0;
   margin-left: -50px;
-  margin-right: 50px;
+  margin-right: 50px;*/
   text-align: center;
-  width: 100%;
+  width: 100%
   border-radius: 5px;
   position: relative;
   font-size:48px;
   color: #3b88c3;
+  display: block;
 
 }

@@ -39,9 +39,16 @@ $(function() {
 
 
   // When we receive a user message, add to html list
-  socket.on('user-message', function(msg) {
-    var new_msg = $('<li>').text(msg);
-    $('#messages').append(new_msg);
+    socket.on('user-message', function(msg) {
+      var new_msg = $('<li>').text(msg);
+        console.log(new_msg);
+        if (new_msg[0].innerHTML.indexOf(socket.id) > -1) {
+            new_msg.attr('id', 'mine');
+            $('#messages').append(new_msg)
+        } else {
+            new_msg.attr('id', 'you');
+            $('#messages').append(new_msg);
+          }
     $('body,html').animate({scrollTop: $('#messages li:last-child').offset().top + 5 + 'px'}, 5);
   });
 

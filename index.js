@@ -38,7 +38,7 @@ io.on('connection', function (socket) {
   {
     if(!socket.topic)
     {
-      socket.emit('user-message', "Use /topic ... to set the conversation topic");
+      socket.emit('user-message', "Use 'topic' ... to set the conversation topic");
     }
     //Go over all connected clients
     //see if their topics match
@@ -84,7 +84,7 @@ io.on('connection', function (socket) {
     console.log("Message: ", data);
     if(socket.room)
     {
-      io.to(socket.room).emit('user-message', "[Private]: " + data.message);
+      io.to(socket.room).emit('user-message', socket.id + ": " + data.message);
     }
     else {
       // io.emit('user-message', socket.id + ": " + data.message);
