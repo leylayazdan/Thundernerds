@@ -28,25 +28,20 @@ app.use(express.static('public'));
 io.on('connection', function (socket) {
   io.emit('count', io.sockets.sockets.length);
   // socket.id is a unique id for each socket connection
-  socket.on('topics', function(message)
-  {
+  socket.on('topics', function(message) {
     console.log("topics:", message);
     socket.topics = message;
   });
 
-  socket.on('topic2', function(message)
-  {
-    console.log("Topic:", message);
-    //
-    socket.topic = message;
+  /*
+  socket.on('topic2', function(message) {
+    socket.topics = message;
   });
 
-  socket.on('topic3', function(message)
-  {
-    console.log("Topic:", message);
-    //
-    socket.topic = message;
+  socket.on('topic3', function(message) {
+    socket.topics = message;
   });
+  */
 
   socket.on('start', function() {
     if(!socket.topics) {
@@ -76,8 +71,9 @@ io.on('connection', function (socket) {
       })
     });
 
-    if(clientsWithMatchingTopics.length <= 0) {
-      socket.emit('notopic', 'No one is interested in ' + socket.topic);
+    if (clientsWithMatchingTopics.length <= 0) {
+      socket.emit('user-message', "Sorry. We couldn't find a match for " + socket.topics +
+          ". \n You can wait for someone or try these suggestions: anxious, depressed, insecure, lonely, powerless, stressed");
       return;
     }
 

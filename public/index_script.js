@@ -19,23 +19,19 @@ $(function() {
     socket.emit('start');
   });
 
-  // When the user clicks on submit topic button
-  $('#topic-click2').click(function(){
+  /*
+  $('#no-topic').on('click', function(e)
+  {
     sendTopic2();
+    socket.emit('start');
   });
 
-  // When the user clicks on submit topic button
-  $('#topic-click3').click(function(){
+  $('#no-topic2').on('click', function(e)
+  {
     sendTopic3();
-  });
-
-  $('#no-topic').on('click', function(e) {
     socket.emit('start');
   });
-
-  $('#no-topic2').on('click', function(e) {
-    socket.emit('start');
-  });
+  */
 
   // Or the user presses enter from the text box
   $('#msg').keydown(function(event) {
@@ -60,20 +56,21 @@ $(function() {
     socket.emit('topics', topics);
   };
 
+  /*
   var sendTopic2 = function() {
-    var $topic = $('#topic2');
-    var topic = $topic.val();
+    var $topic2 = $('#topic2');
+    var topic2 = $topic2.val();
 
-    socket.emit('topic2', topic);
+    socket.emit('topic2', topic2);
   };
 
   var sendTopic3 = function() {
-    var $topic = $('#topic3');
-    var topic = $topic.val();
+    var $topic3 = $('#topic3');
+    var topic3 = $topic3.val();
 
-    socket.emit('topic3', topic);
+    socket.emit('topic3', topic3);
   };
-
+  */
   // When we receive a user message, add to html list
   socket.on('user-message', function(msg) {
     var new_msg = $('<li>').text(msg);
