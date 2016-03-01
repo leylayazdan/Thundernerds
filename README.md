@@ -29,3 +29,6 @@ For our vision and additional features:
     -to provide data to mental wellness organizations by keeping track of common topics among users 
     -to continue connections between users by allowing them to create accounts and be able to save chat history
     -to expand the chatting feature from one-on-one chatting into multi-user chatrooms
+    
+    
+Check it out on [devpost] (http://devpost.com/software/out-of-my-mind)!
