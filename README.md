@@ -31,4 +31,4 @@ For our vision and additional features:
     -to expand the chatting feature from one-on-one chatting into multi-user chatrooms
     
     
-Check it out (here) [out-of-my-mind.herokuapp.com], or see it on [devpost] (http://devpost.com/software/out-of-my-mind)!
+Check it out (here) [http://out-of-my-mind.herokuapp.com], or see it on [devpost] (http://devpost.com/software/out-of-my-mind)!
