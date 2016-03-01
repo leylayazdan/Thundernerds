@@ -1,5 +1,7 @@
 #Out of My Mind 
 
+Check it out [here] (http://out-of-my-mind.herokuapp.com), or see it on [devpost] (http://devpost.com/software/out-of-my-mind)!
+
 ## Inspiration
 Meet Catherine. Recently with academic, social, and personal stress, she has relapsed back into depression. In fear of the social stigmatism of mental illnesses, she does not know whom to talk to about this and has not revealed this to anyone. She is currently fighting the battle alone.
 Late night, when her depression gets the worst of her, she just needs someone to talk to at that moment. 
@@ -30,5 +32,3 @@ For our vision and additional features:
     -to continue connections between users by allowing them to create accounts and be able to save chat history
     -to expand the chatting feature from one-on-one chatting into multi-user chatrooms
     
-    
-Check it out [here] (http://out-of-my-mind.herokuapp.com), or see it on [devpost] (http://devpost.com/software/out-of-my-mind)!
